@@ -1,0 +1,61 @@
+@{
+    ViewBag.Title = "Calculator";
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <script src="~/Scripts/calculator.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <title>@ViewData["Calculator"]</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1>Dynamic Calculator</h1>
+            <input type="number" id="number1" placeholder="Number 1" maxlength="6" oninput="validateInput(this)" />
+            <p id="Numbers-error" class="text-danger"></p>
+            <input type="number" id="number2" placeholder="Number 2" maxlength="6" oninput="validateInput(this)" />
+            <p id="Numbers2-error" class="text-danger"></p>
+            <select id="currency">
+                <option value="">Select Currency</option>
+                <option value="Rs">Rupees (Rs)</option>
+                <option value="$">Dollars ($)</option>
+                <option value="€">Euros (€)</option>
+                <option value="£">Pounds (£)</option>
+            </select>
+            <p id="currency-error" class="text-danger"></p>
+            <select id="operation">
+                <option value="">Select Operation</option>
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
+                <option value="sqrt">√</option>
+                <option value="power">^</option>
+                <option value="simpleInterest">Simple Interest</option>
+                <option value="compoundInterest">Compound Interest</option>
+                <option value="emiCalculation">EMI Calculation</option>
+                <option value="investmentGrowth">Investment Growth</option>
+            </select>
+            <p id="operation-error" class="text-danger"></p>
+
+            <div class="button-group">
+                <button id="clear" class="btn-custom-clear">Clear</button>
+                <button id="calculate" class="btn-custom-calculate">Calculate</button>
+            </div>
+
+            <h3>Result: <span id="result">0</span></h3>
+        </div>
+        <div class="history-container">
+            <h1>Calculation History</h1>
+            <ul id="history"></ul>
+            <button id="clearHistory">Clear History</button>
+        </div>
+    </div>
+</body>
+</html>
